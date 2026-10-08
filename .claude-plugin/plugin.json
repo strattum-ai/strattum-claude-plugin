@@ -1,0 +1,21 @@
+{
+  "name": "strattum-company-brain",
+  "displayName": "Strattum - Company Brain",
+  "version": "0.1.0",
+  "description": "Consulte o Company Brain da sua empresa com o seu próprio login. O Brain roda na nuvem da empresa (BYOC), aplica as suas permissões a cada consulta e devolve as fontes de cada resposta.",
+  "author": {
+    "name": "Strattum",
+    "url": "https://strattum.ai"
+  },
+  "homepage": "https://strattum.ai",
+  "keywords": ["strattum", "company-brain", "knowledge", "byoc"],
+  "icon": "./assets/strattum-icon.svg",
+  "userConfig": {
+    "mcp_url": {
+      "type": "string",
+      "title": "URL do MCP da sua empresa",
+      "description": "Endereço completo do Company Brain da sua empresa, no formato https://<domínio-da-empresa>/mcp/. Peça ao administrador. Nunca use http://: o Claude Code aceita e o seu login trafegaria sem criptografia. Não é senha nem token: o login acontece depois, em /mcp.",
+      "required": true
+    }
+  }
+}

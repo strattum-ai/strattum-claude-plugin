@@ -1,0 +1,1 @@
+{"query": "{{input.query}}", "intent": "structured", "sources_used": ["memory"], "context": [], "entities": [{"entity_id": "ent_51c0d2", "type": "Account", "name": "Transportadora Boa Viagem Ltda", "managed_by": "Paula Ribeiro (Gerente de contas)", "last_meeting": {"date": "2026-09-18", "title": "Revisão trimestral do contrato", "source": "hubspot:meeting/551203"}}]}
