@@ -1,0 +1,14 @@
+{
+  "name": "strattum",
+  "owner": {
+    "name": "Strattum",
+    "url": "https://strattum.ai"
+  },
+  "description": "Plugins da Strattum para Claude e Claude Code.",
+  "plugins": [
+    {
+      "name": "strattum-company-brain",
+      "source": "./plugins/strattum-company-brain"
+    }
+  ]
+}
