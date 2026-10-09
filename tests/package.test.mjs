@@ -236,11 +236,15 @@ test('the skill gives the directory scan nothing to read as a credential sent aw
   assert.doesNotMatch(skill, /https?:\/\/[^\s`)]/, 'no URL with a host');
 });
 
-test('README pipes nothing into a command', () => {
-  // A shell pipe in the README is flagged as download-and-run (RUNTIME_FETCH_EXEC)
-  // and shown to reviewers and users as an install-time risk.
+test('README code blocks fetch nothing: no URL, no pipe', () => {
+  // The directory flags a download-and-run shell pattern in the README
+  // (RUNTIME_FETCH_EXEC) and shows it to reviewers and users as an install-time
+  // risk. Its pattern is not documented: removing the echo | claude pipe did not
+  // clear it, and the install command still carried an https URL. Code blocks keep
+  // neither; the URL format is explained in the prose around them.
   for (const [, block] of read('README.md').matchAll(/```[^\n]*\n([\s\S]*?)```/g)) {
     assert.doesNotMatch(block, /\|/, `pipe in a README code block:\n${block}`);
+    assert.doesNotMatch(block, /https?:\/\//, `URL in a README code block:\n${block}`);
   }
 });
 

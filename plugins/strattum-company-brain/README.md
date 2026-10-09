@@ -52,11 +52,11 @@ o acesso depende do seu login, feito no passo 4.
 
 1. **Instale o plugin.** Se a sua organização distribui o plugin, ele já aparece
    em `/plugin`. Se não, instale pelo `/plugin` a partir da origem que o
-   administrador indicar. A TI pode instalar já com a URL:
+   administrador indicar. A TI pode instalar já com a URL, trocando
+   `<url-do-mcp>` pela URL completa da empresa, no formato acima:
 
    ```bash
-   claude plugin install strattum-company-brain@<origem> \
-     --config mcp_url=https://<domínio-da-empresa>/mcp/
+   claude plugin install strattum-company-brain@<origem> --config mcp_url=<url-do-mcp>
    ```
 
    Pela linha de comando não aparece formulário. Sem `--config`, o plugin fica
@@ -64,10 +64,11 @@ o acesso depende do seu login, feito no passo 4.
 
 2. **Informe a URL uma vez**, se ela ainda não estiver configurada, com
    `/plugin configure strattum-company-brain@<origem>`. A TI também pode gravar
-   o valor por conta ou por máquina, com um arquivo `mcp-url.json`:
+   o valor por conta ou por máquina, com um arquivo `mcp-url.json` em que
+   `<url-do-mcp>` é a mesma URL completa:
 
    ```json
-   {"mcp_url": "https://<domínio-da-empresa>/mcp/"}
+   {"mcp_url": "<url-do-mcp>"}
    ```
 
    ```bash
