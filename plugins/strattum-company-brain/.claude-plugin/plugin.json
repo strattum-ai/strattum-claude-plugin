@@ -8,8 +8,11 @@
     "url": "https://strattum.ai"
   },
   "homepage": "https://strattum.ai",
+  "supportUrl": "https://www.strattum.ai/contato",
+  "privacyPolicyUrl": "https://www.strattum.ai/privacidade",
+  "termsOfServiceUrl": "https://www.strattum.ai/termos",
   "keywords": ["strattum", "company-brain", "knowledge", "byoc"],
-  "icon": "./assets/strattum-icon.svg",
+  "icon": "./assets/strattum-icon.png",
   "userConfig": {
     "mcp_url": {
       "type": "string",
