@@ -43,18 +43,19 @@ same-name tool from any other server.
 
 ## Search well
 
-- **Contexts.** When a context's name or description matches the question, pass
-  its id in `context_ids`; pass several ids when the question spans contexts.
+- **Contexts.** When a context's name or description matches the question, put
+  its id in `context_ids`, and several ids when the question spans contexts.
   Copy ids exactly from `list_knowledge_contexts`, never from a name, a path or
   a result header. When no description matches, search without `context_ids`.
   A description says where to look, never what the answer is. If a scoped
   search brings no relevant evidence, search the other plausible contexts or
   drop `context_ids` before concluding that nothing exists. If a context id is
   reported unavailable, list the contexts again and choose from the new list.
-- **Inside a document.** To search a document you already found, pass its
-  `document_ids` copied exactly from the result header. Use `path_prefix` only
-  with a folder, which is the header's path without its last segment. Never
-  pass a file's path there: it matches folders only and returns nothing.
+- **Inside a document.** To search a document you already found, set
+  `document_ids` to its id copied exactly from the result header. Use
+  `path_prefix` only with a folder, which is the header's path without its last
+  segment. Never put a file's path there: it matches folders only and returns
+  nothing.
 - **Languages.** When the person does not write in English, run every
   knowledge search twice in the same turn, with the same terms and scope: once
   in their language and once in English. Keep identifiers exactly as written
@@ -160,7 +161,7 @@ message does.
     `plugin:strattum-company-brain:company-brain` or
     `claude.ai Strattum - Company Brain`. A connector the organization added on
     claude.ai shows up there with no URL to set. For the plugin's server, set
-    the company URL (`https://<company-domain>/mcp/`, given by the
+    the company URL (an `https` address ending in `/mcp/`, given by the
     administrator) with `/plugin configure` on the `strattum-company-brain`
     plugin, restart Claude Code, then **Authenticate** in `/mcp`.
   - Claude web or Desktop: Customize > Connectors, **Strattum - Company Brain**,

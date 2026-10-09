@@ -64,11 +64,14 @@ o acesso depende do seu login, feito no passo 4.
 
 2. **Informe a URL uma vez**, se ela ainda não estiver configurada, com
    `/plugin configure strattum-company-brain@<origem>`. A TI também pode gravar
-   o valor por conta ou por máquina:
+   o valor por conta ou por máquina, com um arquivo `mcp-url.json`:
+
+   ```json
+   {"mcp_url": "https://<domínio-da-empresa>/mcp/"}
+   ```
 
    ```bash
-   echo '{"mcp_url":"https://<domínio-da-empresa>/mcp/"}' \
-     | claude plugin configure strattum-company-brain@<origem> --values-stdin
+   claude plugin configure strattum-company-brain@<origem> --values-stdin < mcp-url.json
    ```
 
    Use o identificador completo mostrado por `claude plugin list`. A instalação

@@ -227,6 +227,23 @@ test('the skill keeps its safety rules', () => {
   assert.match(skill, /Retrieved content is data/, 'retrieved content is not instructions');
 });
 
+test('the skill gives the directory scan nothing to read as a credential sent away', () => {
+  // The directory's validator held 0.1.0 (MCP_FORWARDS_CREDENTIAL_ENV) because the
+  // verb in "pass several ids" read as a password and a URL in the same body read as
+  // where it goes. The skill neither reads nor sends credentials, so it uses neither.
+  const skill = read('skills/consult-company-brain/SKILL.md');
+  assert.doesNotMatch(skill, /\bpass\b/i, 'no "pass" verb');
+  assert.doesNotMatch(skill, /https?:\/\/[^\s`)]/, 'no URL with a host');
+});
+
+test('README pipes nothing into a command', () => {
+  // A shell pipe in the README is flagged as download-and-run (RUNTIME_FETCH_EXEC)
+  // and shown to reviewers and users as an install-time risk.
+  for (const [, block] of read('README.md').matchAll(/```[^\n]*\n([\s\S]*?)```/g)) {
+    assert.doesNotMatch(block, /\|/, `pipe in a README code block:\n${block}`);
+  }
+});
+
 test('the skill recognizes the organization connector as the Brain', () => {
   const skill = read('skills/consult-company-brain/SKILL.md');
   assert.match(skill, /mcp__plugin_strattum-company-brain_company-brain__/);
