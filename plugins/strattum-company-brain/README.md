@@ -51,33 +51,14 @@ empresa. Ela tem o formato `https://<domínio-da-empresa>/mcp/` e não é segred
 o acesso depende do seu login, feito no passo 4.
 
 1. **Instale o plugin.** Se a sua organização distribui o plugin, ele já aparece
-   em `/plugin`. Se não, instale pelo `/plugin` a partir da origem que o
-   administrador indicar. A TI pode instalar já com a URL, trocando
-   `<url-do-mcp>` pela URL completa da empresa, no formato acima:
+   em `/plugin`. Caso contrário, abra `/plugin`, encontre **Strattum - Company
+   Brain** no diretório e adicione. Se ele ainda não estiver listado, peça ao
+   administrador a origem aprovada. A instalação não preenche a URL da empresa.
 
-   ```bash
-   claude plugin install strattum-company-brain@<origem> --config mcp_url=<url-do-mcp>
-   ```
-
-   Pela linha de comando não aparece formulário. Sem `--config`, o plugin fica
-   instalado com a URL pendente.
-
-2. **Informe a URL uma vez**, se ela ainda não estiver configurada, com
-   `/plugin configure strattum-company-brain@<origem>`. A TI também pode gravar
-   o valor por conta ou por máquina, com um arquivo `mcp-url.json` em que
-   `<url-do-mcp>` é a mesma URL completa:
-
-   ```json
-   {"mcp_url": "<url-do-mcp>"}
-   ```
-
-   ```bash
-   claude plugin configure strattum-company-brain@<origem> --values-stdin < mcp-url.json
-   ```
-
-   Use o identificador completo mostrado por `claude plugin list`. A instalação
-   feita pela organização não preenche a URL. Depois de salvar, reinicie o
-   Claude Code.
+2. **Informe a URL uma vez**, se ela ainda não estiver configurada. Em
+   `/plugin`, escolha o plugin e abra **Configure**; informe a URL completa
+   fornecida pelo administrador. A TI também pode configurar esse valor por
+   conta ou por máquina. Depois de salvar, reinicie o Claude Code.
 
 3. **Confira o servidor** em `/mcp`:
    `plugin:strattum-company-brain:company-brain` aponta para a URL da sua

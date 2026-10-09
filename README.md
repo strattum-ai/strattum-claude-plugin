@@ -11,9 +11,9 @@ lista todos eles.
 ## Como a organização recebe os plugins
 
 Em `Organization settings > Plugins & skills > Add > Sync from GitHub`, escolha
-este repositório, que precisa continuar privado. A sincronização lê a branch
-padrão e entrega cada plugin com o acesso escolhido. Ela não cadastra
-conectores: o conector de cada plugin continua em
+este repositório. Ele é público para a submissão ao diretório da Anthropic.
+A sincronização lê a branch padrão e entrega cada plugin com o acesso escolhido.
+Ela não cadastra conectores: o conector de cada plugin continua em
 `Organization settings > Connectors`.
 
 Os testes do pacote ficam em `tests/`, fora da pasta do plugin, e não são
