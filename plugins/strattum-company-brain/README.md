@@ -186,7 +186,7 @@ canal de suporte da implantação.
 ## Situação
 
 Versão 0.1.0, em piloto. O plugin ainda não está no diretório público da
-Anthropic e ainda não tem licença de distribuição definida.
+Anthropic. A licença é proprietária: veja o arquivo `LICENSE`.
 
 A pasta `evals/` guarda casos de avaliação com dados fictícios, que a Strattum
 roda com `claude plugin eval` antes de cada versão. Ela não é carregada quando

@@ -17,9 +17,9 @@ conectores: o conector de cada plugin continua em
 `Organization settings > Connectors`.
 
 Os testes do pacote ficam em `tests/`, fora da pasta do plugin, e não são
-distribuídos. Eles conferem identidade, links da listagem, ícone, os arquivos
-que podem ir no pacote e a ausência de segredos e de endereços de clientes.
-Rode na raiz do repositório com `node --test 'tests/*.test.mjs'`.
+distribuídos. Eles conferem identidade, links da listagem, ícone, licença, os
+arquivos que podem ir no pacote e a ausência de segredos e de endereços de
+clientes. Rode na raiz do repositório com `node --test 'tests/*.test.mjs'`.
 
 No Claude Code, sem passar pela organização:
 

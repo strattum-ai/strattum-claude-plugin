@@ -39,6 +39,7 @@ const ALLOWED = [
   /^\.claude-plugin\/plugin\.json$/,
   /^\.mcp\.json$/,
   /^README\.md$/,
+  /^LICENSE$/,
   /^assets\/strattum-icon\.png$/,
   /^skills\/consult-company-brain\/SKILL\.md$/,
   /^evals\/[\w./-]+\.(md|yaml|json)$/,
@@ -96,9 +97,14 @@ test('manifest carries the directory listing pages', () => {
   assert.equal(m.termsOfServiceUrl, 'https://www.strattum.ai/termos');
 });
 
-test('manifest declares no license until Strattum approves one', () => {
+test('the plugin ships a proprietary LICENSE', () => {
+  // The directory blocks a listing with neither a LICENSE file nor a license field.
+  // The plugin is proprietary, so the file names the owner and grants no open-source
+  // rights, and the manifest carries no SPDX id that could say otherwise.
+  const license = read('LICENSE');
+  assert.match(license, /Copyright \(c\) 2026 STRATTUM DESENVOLVIMENTO DE SOFTWARES LTDA\. All rights reserved\./);
+  assert.doesNotMatch(license, /\b(MIT|Apache|GPL|BSD|Creative Commons)\b/);
   assert.equal(manifest().license, undefined);
-  assert.equal(existsSync(join(PLUGIN, 'LICENSE')), false);
 });
 
 // The Strattum Desktop app icon (strattum-desktop/assets/icon.png): the mark on a
